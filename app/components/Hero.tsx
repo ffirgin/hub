@@ -14,7 +14,7 @@ export default function Hero() {
   });
 
   return (
-    <div className="flex flex-col h-screen items-center justify-center">
+    <div className="z-10 flex flex-col h-screen items-center justify-center">
       <h1 className="text-5xl font-bold  pb-2">
         <span>{text}</span>
         <Cursor cursorColor="#935FA7" />
@@ -58,11 +58,11 @@ export default function Hero() {
           },
         }}
       >
-        <Link href="#about">
+        <Link href="about">
           <button className="heroButton">About</button>
         </Link>
 
-        <Link href="Experience">
+        <Link href="experience">
           <button className="heroButton">Experience</button>
         </Link>
 
@@ -72,7 +72,7 @@ export default function Hero() {
       </motion.div>
 
       <motion.div 
-        className="flex justify-center items-center mt-3"
+        className="flex justify-center items-center mt-4"
         initial="hidden"
         animate="visible"
         variants={{
@@ -91,10 +91,10 @@ export default function Hero() {
           }
         }}
         >
-        <Link href="https://github.com/ffirgin/">
+        <Link href="https://github.com/ffirgin/" target="_blank">
           <FaGithub className="mx-2" size={30} />
         </Link>
-        <Link href="https://www.linkedin.com/in/grffn/">
+        <Link href="https://www.linkedin.com/in/grffn/" target="_blank">
           <FaLinkedin color="" className="mx-2" size={30} />
         </Link>
       </motion.div>
