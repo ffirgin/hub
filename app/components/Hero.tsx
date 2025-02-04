@@ -15,7 +15,10 @@ export default function Hero() {
 
   return (
     <div className="z-10 flex flex-col h-screen items-center justify-center">
-      <h1 className="text-5xl font-bold  pb-2">
+      <h1 
+        className="text-5xl px-4 text-center font-bold flex place-items-end pb-2"
+        style={{ height: '150px', overflow: 'hidden' }}
+        >
         <span>{text}</span>
         <Cursor cursorColor="#935FA7" />
       </h1>
