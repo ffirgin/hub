@@ -13,8 +13,19 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      keyframes: {
+        borderPan: {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
+      },
+      animation: {
+        borderPan: "borderPan 6s ease infinite",
+      },
     },
   },
   plugins: [],
 };
+
 export default config;
