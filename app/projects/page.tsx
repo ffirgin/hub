@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
+import Link from "next/link";
 
 const projects = [
   {
@@ -10,20 +11,23 @@ const projects = [
     description:
       "Using a public API, this site brings all kinds of helpful information about the game VALORANT.",
     tech: ["Next.js", "Tailwind CSS", "REST API"],
+    link: "https://valo-ez.vercel.app/",
   },
   {
     project: "Valorant Strategy Randomizer",
     title: "Tactical Strat Generator",
     description:
-      "Web tool for generating random strats for competitive Valorant play. Built with React and Tailwind.",
+      "Web tool for generating random strats for VALORANT. Built with React and Tailwind.",
     tech: ["React", "Next.js", "Tailwind", "Vercel"],
+    link: "https://valorantstrategyrandomizer.github.io/StratRandomizer/",
   },
   {
-    project: "Brain Dump",
-    title: "Personal journal and Brain Dump",
+    project: "LLM (Love Letter to Myself)",
+    title: "Personal journal and idea dump",
     description:
-      "A minimalist journaling app using my personal Obsidian Locker and Next.js.",
+      "Where my inner monologue meets the real world. This project is under construction.",
     tech: ["Next.js", "Obsidian.MD", "Tailwind CSS"],
+    link: "",
   },
 ];
 
@@ -67,10 +71,23 @@ export default function ProjectCarousel() {
           >
             {/* Inner card with solid background and rounded corners */}
             <div className="bg-zinc-800 rounded-lg p-8">
-              <h2 className="text-2xl md:text-3xl font-bold mb-2">
-                {projects[current].project}
-              </h2>
-              <p className="text-[#935FA7]/55 mb-4">{projects[current].title}</p>
+              {projects[current].link ? (
+                <a
+                  href={projects[current].link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-2xl md:text-3xl font-bold mb-2  hover:text-[#935FA7]"
+                >
+                  {projects[current].project}
+                </a>
+              ) : (
+                <h2 className="text-2xl md:text-3xl font-bold mb-2">
+                  {projects[current].project}
+                </h2>
+              )}
+              <p className="text-[#935FA7]/80 mb-4">
+                {projects[current].title}
+              </p>
               <p className="mb-4">{projects[current].description}</p>
               <ul className="flex flex-wrap gap-2 mt-4">
                 {projects[current].tech.map((tech, i) => (
@@ -92,10 +109,10 @@ export default function ProjectCarousel() {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`h-4 w-4 rounded-full transition-colors ${
+              className={`h-4 w-8 rounded-lg transition-colors ${
                 current === index
-                  ? "bg-[#935FA7]"
-                  : "bg-[#3d2746] hover:bg-[#5c3c69]"
+                  ? "bg-[#935FA7]/70"
+                  : "bg-[#3d2746]/70 hover:bg-[#5c3c69]"
               }`}
               aria-label={`Go to project ${index + 1}`}
             />
